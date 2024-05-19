@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
 
 public class metodoLuhn {
 
-    Stack <Integer> pilaInvertidaOriginal = new Stack<>();
+    Stack <Integer> pilaOriginalInvertida = new Stack<>();
     String operacion = "";
     String numeroOriginal;
 
@@ -18,7 +18,7 @@ public class metodoLuhn {
 
     private void invertirOrden(char cadena[]){
         for (char c : cadena) {
-            pilaInvertidaOriginal.push(c-'0');
+            pilaOriginalInvertida.push(c-'0');
         }
     }
 
@@ -26,9 +26,9 @@ public class metodoLuhn {
         int indice = 0;
         int nuevoNumero;
         int sumaMultiplo10=0;
-        while(pilaInvertidaOriginal.size()>0){
+        while(pilaOriginalInvertida.size()>0){
             if (indice%2==1) {
-                int numeroDoble = pilaInvertidaOriginal.peek()*2;
+                int numeroDoble = pilaOriginalInvertida.peek()*2;
                 if (numeroDoble>9) {
                     int segundoDigito = numeroDoble%10;
                     nuevoNumero = 1+ (segundoDigito);
@@ -39,11 +39,11 @@ public class metodoLuhn {
                     operacion+="+"+numeroDoble;
                 }
             }else{
-                sumaMultiplo10+=pilaInvertidaOriginal.peek();
-                operacion+= (indice==0 ? "" : "+" )+pilaInvertidaOriginal.peek();
+                sumaMultiplo10+=pilaOriginalInvertida.peek();
+                operacion+= (indice==0 ? "" : "+" )+pilaOriginalInvertida.peek();
             }
             indice++;
-            pilaInvertidaOriginal.pop();
+            pilaOriginalInvertida.pop();
         }
 
         JOptionPane.showMessageDialog(null, "Número ingresado: "+numeroOriginal+"\nResultado: "+operacion+" = "+sumaMultiplo10);
