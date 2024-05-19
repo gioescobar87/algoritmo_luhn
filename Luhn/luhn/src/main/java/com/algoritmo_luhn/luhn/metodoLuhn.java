@@ -8,10 +8,10 @@ public class metodoLuhn {
 
     Stack <Integer> pilaInvertidaOriginal = new Stack<>();
     String operacion = "";
-
+    String numeroOriginal;
 
     public boolean parsear(char cadena[]){
-        System.out.println(cadena);
+        numeroOriginal = String.valueOf(cadena);
         invertirOrden(cadena);
         return doblarSegundosDigitos();
     }
@@ -46,7 +46,7 @@ public class metodoLuhn {
             pilaInvertidaOriginal.pop();
         }
 
-        JOptionPane.showMessageDialog(null, "Resultado: "+operacion+" = "+sumaMultiplo10);
+        JOptionPane.showMessageDialog(null, "Número ingresado: "+numeroOriginal+"\nResultado: "+operacion+" = "+sumaMultiplo10);
 
         if (sumaMultiplo10%10==0) {
             return true;
