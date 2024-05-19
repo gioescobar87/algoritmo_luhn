@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
 
 public class metodoLuhn {
 
-    Stack <Integer> pilaInvertidaOriginal = new Stack();
+    Stack <Integer> pilaInvertidaOriginal = new Stack<>();
     String operacion = "";
 
 
